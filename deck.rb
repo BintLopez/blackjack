@@ -8,22 +8,25 @@ class Deck
   SUITS = %w(hearts diamonds spades clubs)
 
   def initialize
-    # binding.pry
     @cards = create_cards
+    shuffle
   end
 
   def create_cards
     all_cards = SUITS.map do |suit|
       cards_for_suit(suit)
     end
-    # binding.pry
     all_cards.flatten!
   end
 
   def cards_for_suit(suit)
-    (2..14).map do |i|
+    (1..13).map do |i|
       Card.new(suit, i)
     end
+  end
+
+  def shuffle
+    @cards.shuffle!
   end
 
 end

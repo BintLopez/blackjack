@@ -8,12 +8,17 @@ describe Game do
   let(:new_game) { Game.new(deck, 1)}
   
   it 'has a number of players' do 
-    # binding.pry
     expect(new_game.num_players).to eq(1)
   end
 
   it 'has a deck' do
     expect(new_game.deck).to be_an_instance_of(Deck)
+  end
+
+  it 'has at least one player' do
+    new_game.players.each do |player|
+      expect(player).to be_an_instance_of(Player)
+    end
   end
 
 end
@@ -33,12 +38,14 @@ describe Deck do
     end
 
   end
+
 end
 
 describe Card do
 
   let(:card) { Card.new("hearts", 2)}
   let(:face_card) { Card.new("diamonds", 12) }
+  let(:ace) { Card.new("spades", 1) }
 
   context "Each new card" do
     it "has the correct suit" do
@@ -66,4 +73,22 @@ describe Card do
     end
   end
 
+  context "Card is an ace" do
+    it "creates correct name based on suit and value" do
+      expect(ace.name).to eq("ace of spades")
+    end
+  end
+
+end
+
+
+describe Player do
+
+  let(:player) { Player.new(1)}
+
+  context "Each new player" do
+    it "has a player id" do
+      expect(player.id).to eq 1
+    end
+  end
 end

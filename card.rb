@@ -1,4 +1,3 @@
-
 class Card
 
   attr_reader :suit, :value, :name
@@ -14,10 +13,10 @@ class Card
 
   def face_cards
     { 
+      1  => "ace",
       11 => "jack",
       12 => "queen",
-      13 => "king",
-      14 => "ace"
+      13 => "king"
     }
   end
 
@@ -35,10 +34,7 @@ class Card
   end
 
   def face_card_points
-    # binding.pry
-    if is_a_face_card?
-      10
-    end
+    10 if is_a_face_card?
   end
 
 
