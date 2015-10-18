@@ -44,7 +44,7 @@ describe Deck do
 
   describe '#deal_card' do
     it 'should deal one card at a time' do
-      a_card = @deck.deal_card
+      a_card = deck.deal_card
       expect(a_card).to be_an_instance_of Object
     end
   end
