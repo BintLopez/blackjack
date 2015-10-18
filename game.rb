@@ -7,7 +7,6 @@ class Game
   attr_reader :deck, :num_players, :players
 
   def initialize(deck, num_players)
-    # binding.pry
     @deck = deck
     @num_players = num_players
     @players = []
