@@ -7,15 +7,14 @@ describe Game do
   let(:deck) { Deck.new }
   let(:new_game) { Game.new(deck, 1)}
   
+  
   it 'has a number of players' do 
-    # binding.pry
     expect(new_game.num_players).to eq(1)
   end
 
   it 'has a deck' do
     expect(new_game.deck).to be_an_instance_of(Deck)
   end
-
 end
 
 describe Deck do
@@ -31,16 +30,27 @@ describe Deck do
     it "makes 13 cards for a suit" do
       expect(deck.cards_for_suit("test_suit").size).to eq(13)
     end
+  
+    it 'should create 13 heart cards' do
+      expect(deck.cards_for_suit('hearts').length).to eq(13)
+    end
+  end
 
+  describe '#deal_card' do
+    it 'should deal one card at a time' do
+      a_card = @deck.deal_card
+      expect(a_card).to be_an_instance_of Object
+    end
   end
 end
+
 
 describe Card do
 
   let(:card) { Card.new("hearts", 2)}
   let(:face_card) { Card.new("diamonds", 12) }
 
-  context "Each new card" do
+  describe "Each new card" do
     it "has the correct suit" do
       expect(card.suit).to eq("hearts")
     end
@@ -65,5 +75,11 @@ describe Card do
       expect(face_card.points).to eq(10)
     end
   end
-
 end
+
+
+
+
+
+
+

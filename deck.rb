@@ -8,7 +8,6 @@ class Deck
   SUITS = %w(hearts diamonds spades clubs)
 
   def initialize
-    # binding.pry
     @cards = create_cards
   end
 
@@ -25,5 +24,9 @@ class Deck
       Card.new(suit, i)
     end
   end
+
+  def deal_card
+      @cards.pop
+  end  
 
 end

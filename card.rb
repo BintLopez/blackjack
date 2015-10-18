@@ -8,7 +8,6 @@ class Card
     @suit = suit
     @value = value
     @points = face_card_points || value
-    # binding.pry
     @name = create_name(suit, value)
   end
 
@@ -35,7 +34,6 @@ class Card
   end
 
   def face_card_points
-    # binding.pry
     if is_a_face_card?
       10
     end
