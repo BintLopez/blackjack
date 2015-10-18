@@ -103,5 +103,17 @@ describe Player do
       expect(player.id).to eq 1
     end
   end
+end
 
+describe Dealer do
+
+  let(:dealer) {Dealer.new}
+
+  it 'inherit from player' do
+    expect(described_class).to be < Player
+  end
+
+  it 'initiates the deck' do
+    expect(dealer.deck).to be_an_instance_of Deck
+  end
 end
