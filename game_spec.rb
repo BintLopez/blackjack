@@ -90,5 +90,6 @@ describe Player do
     it "has a player id" do
       expect(player.id).to eq 1
     end
+
   end
 end

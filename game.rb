@@ -11,7 +11,7 @@ class Game
     @deck = deck
     @num_players = num_players
     @players = []
-    num_players.times { |i| @players << Player.new(i) }
+    @num_players.times { |i| @players << Player.new(i) }
   end
 
 end
