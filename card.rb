@@ -7,7 +7,6 @@ class Card
     @suit = suit
     @value = value
     @points = face_card_points || value
-    # binding.pry
     @name = create_name(suit, value)
   end
 
