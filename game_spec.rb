@@ -26,19 +26,18 @@ end
 describe Deck do
 
   let(:deck) { Deck.new }
+  let(:suits) { Deck::SUITS }
 
   it "has 52 cards" do
     expect(deck.cards.size).to eq(52)
   end
 
-  describe "#cards_for_suit" do
-
-    it "makes 13 cards for a suit" do
-      expect(deck.cards_for_suit("test_suit").size).to eq(13)
-    end
-  
-    it 'should create 13 heart cards' do
-      expect(deck.cards_for_suit('hearts').length).to eq(13)
+  context 'for each suit' do
+    it 'creates 13 cards for #{suit}' do
+      suits.each do |suit|
+        cards_of_suit = deck.send("#{suit}".to_sym)
+        expect(cards_of_suit.length).to eq(13)
+      end
     end
   end
 
@@ -116,4 +115,15 @@ describe Dealer do
   it 'initiates the deck' do
     expect(dealer.deck).to be_an_instance_of Deck
   end
+
+  it 'can deal a card from the deck' do
+    expect_any_instance_of(Deck).to receive(:deal_card)
+    dealer.deal
+  end
+
+  it 'can shuffle the deck' do
+    expect_any_instance_of(Deck).to receive(:shuffle)
+    dealer.shuffle_deck
+  end
+
 end
