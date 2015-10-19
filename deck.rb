@@ -25,24 +25,6 @@ class Deck
     cards.pop
   end
 
-  # All of the below methods are now created by the block on line 10
-
-  # def spades
-  #   cards.select { |card| card.suit == "spades" }
-  # end
-
-  # def hearts
-  #   cards.select { |card| card.suit == "hearts" }
-  # end
-
-  # def diamonds
-  #   cards.select { |card| card.suit == "diamonds" }
-  # end
-
-  # def clubs
-  #   cards.select { |card| card.suit == "clubs" }
-  # end
-
   private
 
   def create_cards

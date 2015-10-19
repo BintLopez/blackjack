@@ -102,6 +102,7 @@ describe Player do
       expect(player.id).to eq 1
     end
   end
+  
 end
 
 describe Dealer do
